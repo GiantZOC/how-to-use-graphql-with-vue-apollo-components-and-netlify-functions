@@ -1,6 +1,7 @@
 import { createApolloClient } from 'vue-cli-plugin-apollo/graphql-client';
 import Vue from 'vue';
 import VueApollo from 'vue-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
 Vue.use(VueApollo);
 
@@ -13,6 +14,7 @@ const defaultOptions = {
   persisting: false,
   websocketsOnly: false,
   ssr: false,
+  cache: new InMemoryCache(),
 };
 
 export function createProvider(options = {}) {
